@@ -39,10 +39,10 @@ public class Postre extends Plato{
         return this.getClass().getSimpleName();
     }
 
-//    @Override
-//    public Plato copia() {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
+   @Override
+   public Plato copia() {
+       throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+   }
     
     
 }
