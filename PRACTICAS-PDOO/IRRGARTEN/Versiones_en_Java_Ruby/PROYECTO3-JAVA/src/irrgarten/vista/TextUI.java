@@ -1,0 +1,70 @@
+
+package irrgarten.vista;
+
+import irrgarten.enums.Directions;
+import irrgarten.GameState;
+import java.util.Scanner;
+
+
+public class TextUI {
+    
+    private static Scanner in = new Scanner(System.in);
+    
+    private char readChar() {
+        String s = in.nextLine();     
+        return s.charAt(0);
+    }
+    
+
+    public Directions nextMove() {
+        System.out.print("Where? ");
+        
+        Directions direction = Directions.DOWN;
+        boolean gotInput = false;
+        
+        while (!gotInput) {
+            char c = readChar();
+            switch(c) {
+                case 'w':
+                    System.out.print(" UP\n");
+                    direction = Directions.UP;
+                    gotInput = true;
+                    break;
+                case 's':
+                    System.out.print(" DOWN\n");
+                    direction = Directions.DOWN;
+                    gotInput = true;
+                    break;
+                case 'd':
+                    System.out.print("RIGHT\n");
+                    direction = Directions.RIGHT;
+                    gotInput = true;
+                    break;
+                case 'a':
+                    System.out.print(" LEFT\n");
+                    direction = Directions.LEFT;
+                    gotInput = true;    
+                    break;
+            }
+        }    
+        return direction;
+    }
+    
+    public void showGame(GameState gameState) {
+        System.out.println("\nEstado del laberinto: \n" + gameState.getLabyrinthv()
+                            + "\n");
+        System.out.println("\nEstado de los jugadores: \n\n" + gameState.getPlayers()
+                            + "\n");
+        System.out.println("\nEstado de los monstruos: \n" + gameState.getMonsters()
+                            + "\n");
+        System.out.println("\nTiene el turno el jugador nº'" + gameState.getCurrentPlayer()                            
+                + "'\n");
+        if(gameState.getWinner())
+            System.out.println("\n¡Tenemos a un ganador!\n");
+        else
+            System.out.println("\nAun no hay un ganador.\n");
+        
+        System.out.println("\nEstados interesantes: " + gameState.getLog() + ".\n\n");    
+        
+    }
+}
